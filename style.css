@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+header p {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+main {
+    padding: 40px 0;
+    background-color: white;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5e9bff;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
+.upload-btn input {
+    display: none;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #5e9bff;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #4c80d1;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    font-size: 1rem;
+}
