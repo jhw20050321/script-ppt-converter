@@ -1,7 +1,43 @@
-=<form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data">
-    <label for="file-upload" class="upload-btn">
-        <input type="file" id="file-upload" name="file-upload" accept=".txt,.doc,.docx,.hwp" multiple>
-        파일 선택하기
-    </label>
-    <button type="submit" class="submit-btn">파일 업로드</button>
-</form>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>파일 업로드</title>
+        <link rel="stylesheet" href="/style.css">  <!-- CSS 파일 경로 수정 -->
+    </head>    
+<body>
+    <div class="container">
+        <h1>파일 업로드</h1>
+        <form action="http://localhost:3000/upload" method="POST" enctype="multipart/form-data">
+            <label for="file-upload" class="upload-btn">
+                <input type="file" id="file-upload" name="file-upload" accept=".txt,.doc,.docx,.hwp" multiple>
+                파일 선택하기
+            </label>
+            <div class="file-name" id="file-name">선택된 파일이 없습니다.</div>
+            <button type="submit" class="submit-btn">파일 업로드</button>
+        </form>
+        <div class="message">업로드된 파일이 서버로 전송됩니다.</div>
+        <div class="message">서버 마지막 수정 시간: <span id="last-modified"></span></div>
+    </div>
+    <script>
+        const fileInput = document.getElementById('file-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        fileInput.addEventListener('change', function () {
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = `선택된 파일: ${fileInput.files[0].name}`;
+            } else {
+                fileNameDisplay.textContent = '선택된 파일이 없습니다.';
+            }
+        });
+
+        // 서버 마지막 수정 시간 출력
+        fetch('/last-modified')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('last-modified').textContent = data.lastModified;
+            });
+    </script>
+</body>
+</html>
